@@ -27,8 +27,6 @@ class Handler():
             'messages': detector.duplicates(),
             'errors': []
             })
-            print(detector.totals())
-            print(detector.duplicates())
         except ValueError as error:
             self.__errors.append(str(error))
 
