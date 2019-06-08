@@ -20,6 +20,14 @@ class Detector():
 
         self.__level = level
 
+        self.__messages = list()
+
+        self.__total_duplicates = 0
+        
+        self.__column_data = list()
+
+        self.__column_duplicates = list()
+
     def totals(self):
         return self.__total_duplicates
 
@@ -31,6 +39,7 @@ class Detector():
             self.get_column_data(header)
         self.get_column_duplicates()
         self.push_duplicates()
+        print(self.__messages)
 
     def get_column_data(self, header):
         self.__column_data.append(
