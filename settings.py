@@ -25,7 +25,7 @@ SECRET_KEY = 'h9jp(j-61%ntpo$x=11$hzx15^r3ll$3zypdo^+dmik=$qn(m9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['csvdetector.herokuapp.com']
+ALLOWED_HOSTS = ['csvdetector.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'urls'
@@ -70,6 +71,8 @@ TEMPLATES = [
 STATICFILES_DIRS = [
     "static",
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 WSGI_APPLICATION = 'wsgi.application'
 

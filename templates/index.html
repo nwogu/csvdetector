@@ -26,8 +26,7 @@
 
 <body>
 
-    <div class="overlay"></div>
-    <div style="height:100vh;" class="p-0 container-fluid">
+    <div class="overlay">
         <div class="row no-gutters h-100">
             <div class="col-md-6">
                 <div class="masthead">
@@ -39,22 +38,8 @@
                                     <h1 class="mb-3">CSV Detector!</h1>
                                     <p class="mb-5">Detect <strong>Duplicate</strong> Entries in your CSV Files
                                         Upload File Below!</p>
-                                    <!-- <div class="input-group input-group-newsletter">
-                                        <input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..."
-                                            aria-describedby="basic-addon">
-                                    </div>
-                                    <div class="input-group input-group-newsletter">
-                                            <input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..."
-                                                aria-describedby="basic-addon">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-secondary" type="button">Notify Me!</button>
-                                            </div>
-                                        </div> -->
                                     <form enctype="multipart/form-data" method="POST" action="{% url 'process' %}">
                                         {% csrf_token %}
-                                        <!-- MAX_FILE_SIZE must precede the file input field -->
-                                        <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
-                                        <!-- Name of input element determines name in $_FILES array -->
                                         <div class="form-group">
                                             <input name="csv_file" type="file" />
                                         </div>
@@ -93,26 +78,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="social-icons">
-        <ul class="list-unstyled text-center mb-0">
-            <li class="list-unstyled-item">
-                <a href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li class="list-unstyled-item">
-                <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-            </li>
-            <li class="list-unstyled-item">
-                <a href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-        </ul>
-    </div> -->
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
