@@ -25,7 +25,7 @@ SECRET_KEY = 'h9jp(j-61%ntpo$x=11$hzx15^r3ll$3zypdo^+dmik=$qn(m9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['csvdetector.herokuapp.com']
 
 
 # Application definition
