@@ -76,13 +76,13 @@
             <div class="col-md-6 d-flex">
                 <div class="justify-content-center align-self-center">
                     <h1 class="mb-3" >{{total}} Duplicates Found</h1>
-                    <ul class="list-unstyled text-center mb-0">
+                    <div class="list-unstyled text-center mb-0">
                     {%for message in messages %}
-                    <li class="list-item">
-                        <strong>{{message}}</strong>
-                    </li>
+                    <p class="mx-1">
+                        <strong>{{message |safe}}</strong>
+                    </p>
                     {% endfor %}
-                    </ul>
+                </div>
                 </div>
             </div>
         </div>

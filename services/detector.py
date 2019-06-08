@@ -23,7 +23,7 @@ class Detector():
         self.__messages = list()
 
         self.__total_duplicates = 0
-        
+
         self.__column_data = list()
 
         self.__column_duplicates = list()
@@ -76,7 +76,7 @@ class Detector():
 
     def compose_message(self, row_number, head, value = ""):
         self.__messages.append(
-            f"Possible Duplicate {value}, Found on Line {row_number}: Header(s) {head}"
+            f"Possible Duplicate {value}, Found on Line {row_number}: Header(s)" + "<br />" + f"{head}"
         )
 
     def match(self, data, row_number, column_data, counter):
