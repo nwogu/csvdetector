@@ -1,0 +1,1 @@
+web: gunicorn csvdetector.wsgi --log-file -
