@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CSV Duplicate Detector</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" rel="stylesheet" type="text/css">
+    {% load staticfiles %}
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/coming-soon.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+    <div style="height:100vh;" class="p-0 container-fluid">
+        <div class="row no-gutters h-100">
+            <div class="col-md-6">
+                <div class="masthead">
+                    <div class="masthead-bg"></div>
+                    <div class="container h-100">
+                        <div class="row h-100">
+                            <div class="col-12 my-auto">
+                                <div class="masthead-content text-white py-5 py-md-0">
+                                    <h1 class="mb-3">CSV Detector!</h1>
+                                    <p class="mb-5">Detect <strong>Duplicate</strong> Entries in your CSV Files
+                                        Upload File Below!</p>
+                                    <!-- <div class="input-group input-group-newsletter">
+                                        <input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..."
+                                            aria-describedby="basic-addon">
+                                    </div>
+                                    <div class="input-group input-group-newsletter">
+                                            <input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..."
+                                                aria-describedby="basic-addon">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-secondary" type="button">Notify Me!</button>
+                                            </div>
+                                        </div> -->
+                                    <form enctype="multipart/form-data" method="POST" action="{% url 'process' %}">
+                                        {% csrf_token %}
+                                        <!-- MAX_FILE_SIZE must precede the file input field -->
+                                        <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
+                                        <!-- Name of input element determines name in $_FILES array -->
+                                        <div class="form-group">
+                                            <input name="csv_file" type="file" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label> Choose Level </label>
+                                            <select name="level">
+                                                <option value="strict">strict</option>
+                                                <option value="loose">loose</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <div style="margin-top: 10px">
+                                                <label> Specify Headers, Seperate with Comma. Leave Blank To Check All </label>
+                                                <input type="text" name="headers" />
+                                            </div>
+                                        </div>
+                                        <input type="submit" value="Send File" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <div class="justify-content-center align-self-center">
+                    <h1 class="mb-3" >{{total}} Duplicates Found</h1>
+                    <ul class="list-unstyled text-center mb-0">
+                    {%for message in messages %}
+                    <li class="list-item">
+                        {{message}}
+                    </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="social-icons">
+        <ul class="list-unstyled text-center mb-0">
+            <li class="list-unstyled-item">
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-unstyled-item">
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li class="list-unstyled-item">
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </div> -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+
+</body>
+
+</html>
