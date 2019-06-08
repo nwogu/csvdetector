@@ -39,5 +39,5 @@ class CsvFile():
         return self.__file_headers.index(header)
 
     def __str__(self):
-        return ", ".join(self.__file_headers)
+        return ", ".join(self.__headers)
 

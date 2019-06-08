@@ -5,23 +5,32 @@ class Handler():
 
     __context = {}
 
+    __errors = []
+
     def __init__(self):
 
         self.__context.update({
         "total": 0,
-        "messages": []
+        "messages": [],
+        "errors": self.__errors
     })
 
     def handle(self, request):
         headers = request.POST['headers']
         headers = headers.split("," ) if headers and headers != "" else list()
-        csvfile = CsvFile(request.FILES['csv_file'], headers)
-        detector = Detector(csvfile, request.POST['level'])
-        detector.detect()
-        self.__context.update({
+        try:
+            csvfile = CsvFile(request.FILES['csv_file'], headers)
+            detector = Detector(csvfile, request.POST['level'])
+            detector.detect()
+            self.__context.update({
             'total': detector.totals(),
-            'messages': detector.duplicates()
-        })
-        
+            'messages': detector.duplicates(),
+            'errors': []
+            })
+            print(detector.totals())
+            print(detector.duplicates())
+        except ValueError as error:
+            self.__errors.append(str(error))
+
     def let_context(self):
         return self.__context

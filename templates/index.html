@@ -26,7 +26,16 @@
 
 <body>
 
-    <div class="overlay">
+        {% if errors %}
+        {% for msg in errors %}
+          <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{msg}}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+    <!-- <div class="overlay"> -->
         <div class="row no-gutters h-100">
             <div class="col-md-6">
                 <div class="masthead">
@@ -77,7 +86,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

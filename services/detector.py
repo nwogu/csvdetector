@@ -39,10 +39,11 @@ class Detector():
 
     def get_column_duplicates(self):
         for column_data in self.__column_data:
+            container = []
             self.__column_duplicates.append(
                 list([row_number 
                 for row_number, data in zip(it.count(2), column_data) 
-                if column_data.count(data) > 1][1:])
+                if self.match(data, row_number, column_data, container)])
             ) 
     
     def push_duplicates(self):
@@ -68,4 +69,13 @@ class Detector():
         self.__messages.append(
             f"Possible Duplicate {value}, Found on Line {row_number}: Header(s) {head}"
         )
+
+    def match(self, data, row_number, column_data, counter):
+        matched = column_data.count(data) > 1
+        if matched:
+            counter.append(data)
+        if counter.count(data) < 2:
+            return False
+        return matched
+        
     
