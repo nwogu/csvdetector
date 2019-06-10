@@ -39,7 +39,6 @@ class Detector():
             self.get_column_data(header)
         self.get_column_duplicates()
         self.push_duplicates()
-        print(self.__messages)
 
     def get_column_data(self, header):
         self.__column_data.append(
@@ -50,9 +49,9 @@ class Detector():
         for column_data in self.__column_data:
             container = []
             self.__column_duplicates.append(
-                list([row_number 
+                [row_number 
                 for row_number, data in zip(it.count(2), column_data) 
-                if self.match(data, row_number, column_data, container)])
+                if self.match(data, row_number, column_data, container)]
             ) 
     
     def push_duplicates(self):

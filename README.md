@@ -2,7 +2,7 @@
 Detect duplicates in a CSV file
 
 ## Installation 
-clone the repo and run ```pip install requirements.tx```  
+clone the repo and run ```pipenv install```  
 cd into the project directory and run ```python manage.py runserver```
 
 ## Usage  
